@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="getData" onclick="fetchData()">Get data</button>
+    <script>
+      const url =
+        "https://s3-stats.cloud.eaglegis.co.nz/arcgis/rest/services/GBV/GBVOtherGeographies/MapServer/2/query?where=&text=Addington&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&queryByDistance=&returnExtentsOnly=false&datumTransformation=&parameterValues=&rangeValues=&f=geojson";
+
+      function fetchData() {
+        fetch(url)
+          .then(data => {
+            return data.json();
+          })
+          .then(res => {
+            console.log(res);
+          });
+      }
+    </script>
+  </body>
+</html>
